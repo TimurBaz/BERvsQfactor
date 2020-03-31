@@ -1,6 +1,6 @@
 clear;close all;
 
-data=readtable('ParamPin/ParamPin_ERandJitter_vs_Disp.xlsx');
+data=readtable('/ParamPin_ERandJitter_vs_Disp.xlsx');
 fSize=30;
 
 QfactorReq=7;
