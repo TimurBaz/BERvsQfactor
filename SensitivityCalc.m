@@ -1,10 +1,10 @@
 clear;close all;
 
-data=readtable('ERandJitter_vs_Disp_2.xlsx');
+data=readtable('ERandJitter_vs_Disp_3.xlsx');
 fSize=40;
 
 QfactorReq=7;
-L=80;
+L=100;
 d=18;
 
 %time is measured in unit intervals (UI)
@@ -13,14 +13,17 @@ tb=1/10;
 tr=0.22/BW;
 tr=tr/tb;
 JTpp=0.3;
-DJpp=data.RMSJitter*0;
+DJpp=data.RMSJitter;
+
+ymin=12;
+ymax=18;
 
 OSNRreq=2*QfactorReq*(data.ER+1)./(data.ER-1);
 OSNRreq=10*log10(OSNRreq);
 figure;
 plot(data.Disp+L*d,OSNRreq,'Linewidth',5);
 
-ylim([12,16])
+ylim([ymin,ymax])
 set(gca,'FontSize',fSize-4)
 xlabel('Remaining dispersion, ps/nm','Interpreter','latex','FontSize', fSize, 'Color', 'black', 'FontWeight', 'bold');
 ylabel('OSNRreq, dB','Interpreter','latex','FontSize', fSize, 'Color', 'black', 'FontWeight', 'bold');
@@ -34,7 +37,7 @@ plot(data.Disp+L*d,OSNRreqJ,'Linewidth',5);
 set(gca,'FontSize',fSize-4)
 xlabel('Remaining dispersion, ps/nm','Interpreter','latex','FontSize', fSize, 'Color', 'black', 'FontWeight', 'bold');
 ylabel('OSNRreqJit, dB','Interpreter','latex','FontSize', fSize, 'Color', 'black', 'FontWeight', 'bold');
-ylim([12,16])
+ylim([ymin,ymax])
 
 figure;
 plot(data.Disp+L*d,max(OSNRreq,OSNRreqJ),'Linewidth',5);
@@ -42,4 +45,4 @@ plot(data.Disp+L*d,max(OSNRreq,OSNRreqJ),'Linewidth',5);
 set(gca,'FontSize',fSize-4)
 xlabel('Remaining dispersion, ps/nm','Interpreter','latex','FontSize', fSize, 'Color', 'black', 'FontWeight', 'bold');
 ylabel('OSNRreqJit, dB','Interpreter','latex','FontSize', fSize, 'Color', 'black', 'FontWeight', 'bold');
-ylim([12,16])
+ylim([ymin,ymax])
