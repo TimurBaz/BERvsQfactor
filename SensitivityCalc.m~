@@ -16,8 +16,8 @@ tr=tr/tb;
 JTpp=0.5;
 
 
-ymin=12;
-ymax=15;
+ymin=12.5;
+ymax=18;
 %xmin=-3000+L*d;
 %xmax=2000+L*d;
 xmin=-200;
